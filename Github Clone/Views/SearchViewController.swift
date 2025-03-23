@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(color: .systemGreen, title: "Get Followers")
-    
+    var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,12 @@ class SearchViewController: UIViewController {
     }
     
     @objc func pushFollowerListViewController(){
+        
+        guard isUsernameEntered else {
+            print("No Username Entered")
+            return
+        }
+        
         let followerListVC = FollowerListViewController()
         followerListVC.username = usernameTextField.text
         followerListVC.title    = usernameTextField.text
@@ -89,6 +95,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameTextField.resignFirstResponder()
         pushFollowerListViewController()
         return true
     }

@@ -14,8 +14,8 @@ class FollowerListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view.
     }
-    viewwill
    
 }
