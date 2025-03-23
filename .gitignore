@@ -1,0 +1,77 @@
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+## Icon must end with two \r
+Icon
+
+## Thumbnails
+._*
+
+## Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+## macOS system files
+ehthumbs.db
+Desktop.ini
+
+## Xcode
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcworkspace/xcshareddata/*
+!default.xcworkspace/xcshareddata/*
+DerivedData/
+build/
+*.hmap
+*.ipa
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+## CocoaPods
+Pods/
+Podfile.lock
+podfile.lock
+
+## Carthage
+Carthage/Build/
+
+## Swift Package Manager
+.swiftpm/
+Package.resolved
+
+## Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+## Xcode automatic backups
+*.xcbackup
+
+## Archives
+*.xcarchive
+
+## Firebase
+GoogleService-Info.plist
+
+## Other
+*.log
+*.swp
+*.orig
+*.rej
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.orig
+
+# Temporary crash logs
+*.crash
