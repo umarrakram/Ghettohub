@@ -12,23 +12,23 @@ class SearchViewController: UIViewController {
     
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
-    let callToActionButton = GFButton(color: .systemGreen, title: "Get Followers")
+    let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
-        createDismissKeyboardTapGesture()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
+        createDismissKeyboardTapGesture()
+    }
+   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
     
     func createDismissKeyboardTapGesture(){
@@ -36,10 +36,18 @@ class SearchViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    @objc func pushFollowerListViewController(){
+    func pushFollowerListViewController() {
         
         guard isUsernameEntered else {
-            print("No Username Entered")
+            DispatchQueue.main.async{
+                let alertVC = GFAlertViewController(alertTitle: "Empty username", message: "Please enter a valid GitHub username", button: "Ok")
+                
+                alertVC.modalPresentationStyle = .overFullScreen
+                alertVC.modalTransitionStyle = .crossDissolve
+                
+                self.present(alertVC, animated: true)
+                
+            }
             return
         }
         
