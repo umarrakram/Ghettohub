@@ -39,15 +39,7 @@ class SearchViewController: UIViewController {
     func pushFollowerListViewController() {
         
         guard isUsernameEntered else {
-            DispatchQueue.main.async{
-                let alertVC = GFAlertViewController(alertTitle: "Empty username", message: "Please enter a valid GitHub username", button: "Ok")
-                
-                alertVC.modalPresentationStyle = .overFullScreen
-                alertVC.modalTransitionStyle = .crossDissolve
-                
-                self.present(alertVC, animated: true)
-                
-            }
+            self.presentGFAlertOnMainThread(title: "Empty username", message: "Please enter a valid GitHub username", buttonTitle: "Ok")
             return
         }
         
