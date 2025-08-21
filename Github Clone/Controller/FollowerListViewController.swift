@@ -45,7 +45,8 @@ class FollowerListViewController: UIViewController {
     
     func getFollowers(){
         NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
-            guard let self else{return}
+            guard let self else { return }
+            
             switch result{
                 
             case .failure(let error):
@@ -70,6 +71,7 @@ class FollowerListViewController: UIViewController {
     func configureDataSource(){
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: followerCollectionView, cellProvider: { collectionView, indexPath, follower in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
+            
             cell.set(follower: follower)
             
             return cell

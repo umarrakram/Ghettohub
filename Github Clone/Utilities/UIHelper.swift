@@ -8,6 +8,7 @@
 import UIKit
 
 struct UIHelper{
+    
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         let flowLayout = UICollectionViewFlowLayout()
         
